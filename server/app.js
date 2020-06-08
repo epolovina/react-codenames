@@ -23,7 +23,7 @@ io.on("connection", (socket) => {
     socket.join(room);
     io.sockets
       .in("room")
-      .emit("connectToRoom", "You are in room no. " + roomno);
+      .emit("connectToRoom", "You are in room number: " + roomno);
   });
 
   if (interval) {
@@ -32,6 +32,9 @@ io.on("connection", (socket) => {
   interval = setInterval(() => getApiAndEmit(socket), 1000);
   socket.on("disconnect", () => {
     console.log("Client disconnected");
+    io.sockets
+      .in("room")
+      .emit("disconnect", "Client disconnected");
     // clearInterval(interval);
   });
 });
