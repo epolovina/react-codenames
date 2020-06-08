@@ -37,7 +37,15 @@ io.on("connection", (socket) => {
 });
 
 const getApiAndEmit = (socket) => {
-  const response = new Date();
+  const time = new Date();
+  let response =
+    time.getHours() +
+    ":" +
+    time.getMinutes() +
+    ":" +
+    time.getSeconds() +
+    "." +
+    time.getMilliseconds();
   // Emitting a new message. Will be consumed by the client
   io.sockets.in("room").emit("FromAPI", response);
   //  socket.emit("FromAPI", response);
