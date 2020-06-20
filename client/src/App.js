@@ -18,12 +18,15 @@ function App() {
   //   socket.on("FromAPI", (data) => {
   //     setResponse(data);
   //   });
+  //   socket.on("disconnect", (data) => {
+  //     console.log("Client disconnected");
+  //   });
   // }, []);
 
   return (
     <div>
       {/* It 's <time dateTime={response}>{response}</time> */}
-      <Board/>
+      <Board />
     </div>
   );
 }

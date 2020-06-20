@@ -6,14 +6,17 @@ import "./Board.css";
 class Board extends Component {
   constructor(props) {
     super(props);
+    this.blue = 8;
+    this.red = 8;
+    this.black = 1;
     this.state = {
       rows: [],
     };
     this.chosenWords = new Set();
   }
 
-  renderCard(i) {
-    return <Card key={i.toString()} name={i} />;
+  renderCard(i, color) {
+    return <Card key={i.toString()} name={i} color={color} />;
   }
 
   async getCategories() {
@@ -50,7 +53,40 @@ class Board extends Component {
     }
   }
 
+  getColor() {
+    let list = {};
+    let primary = 8;
+    let danger = 8;
+    let warning = 8;
+    let dark = 1;
+    for (var i = 0; i < 25; i++) {
+      let set = false;
+      while (!set) {
+        let num = Math.floor(Math.random() * Math.floor(4));
+        if (num === 0 && primary !== 0) {
+          list[i] = "primary";
+          primary--;
+          set = true;
+        } else if (num === 1 && danger !== 0) {
+          list[i] = "danger";
+          danger--;
+          set = true;
+        } else if (num === 2 && dark !== 0) {
+          list[i] = "dark";
+          dark--;
+          set = true;
+        } else if (num === 3 && warning !== 0) {
+          list[i] = "warning";
+          warning--;
+          set = true;
+        }
+      }
+    }
+    return list;
+  }
+
   async createRows(n) {
+    let list = this.getColor();
     let rows = [];
     let categories = await this.getCategories();
 
@@ -63,15 +99,21 @@ class Board extends Component {
       let squares = [];
 
       for (var j = 0; j < n; j++) {
-        squares.push(this.renderCard(await this.pickRandomWord(items)));
+        let tile = n * i + j;
+        let color = list[tile];
+        squares.push(this.renderCard(await this.pickRandomWord(items), color));
       }
-      rows.push(<div key={"row-"+i} className="board-row">{squares}</div>);
+      rows.push(
+        <div key={"row-" + i} className="board-row">
+          {squares}
+        </div>
+      );
     }
     this.setState({ rows: rows });
   }
 
   render() {
-    return <div key="mainBoardDiv" >{this.state.rows}</div>;
+    return <div className="mainBoard" key="mainBoardDiv">{this.state.rows}</div>;
   }
 }
 
