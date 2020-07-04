@@ -1,6 +1,6 @@
 .card {
   /* background: #fff; */
-  border: 1px solid #999;
+  border: 1px solid #000;
   float: left;
   font-size: 20px;
   font-weight: bold;
@@ -23,8 +23,9 @@
 }
 
 .buttonClicked {
-  width: 5em;
-  height: 5em;
+  width: 150px;
+  height: 80px;
+  flex-direction: row;
   margin: 5px;
   background-color: black;
   color: black;
