@@ -1,0 +1,32 @@
+.card {
+	/* background: #fff; */
+	border: 1px solid #000;
+	float: left;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 34px;
+	height: 10%;
+	margin-right: 10px;
+	margin-top: 10px;
+	padding: 10px;
+	padding-bottom: 5px;
+	text-align: center;
+	width: 15%;
+	
+  }
+  
+  .button {
+	width: 5em;
+	height: 5em;
+	margin: 5px;
+	background-color: white;
+  }
+  
+  .buttonClicked {
+	width: 150px;
+	height: 80px;
+	flex-direction: row;
+	margin: 5px;
+	background-color: black;
+	color: black;
+  }

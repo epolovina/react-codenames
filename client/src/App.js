@@ -2,6 +2,7 @@ import "./App.css"
 import React from "react";
 // import React, { useState, useEffect } from "react";
 import Board from "./components/board/Board";
+import Hint from "./components/hint/Hint";
 import socketIOClient from "socket.io-client";
 const ENDPOINT = "http://127.0.0.1:4001";
 
@@ -27,6 +28,7 @@ function App() {
     <div>
       {/* It 's <time dateTime={response}>{response}</time> */}
       <Board />
+      <Hint />
     </div>
   );
 }

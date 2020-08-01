@@ -27,19 +27,19 @@ router.get("/initializeBoard", (req, res) => {
   let categoriesArr = categoriesData[0].categories;
   const colorsEnum = {
     black: {
-      value: 0,
+      value: "dark",
       count: 0,
     },
     blue: {
-      value: 1,
+      value: "primary",
       count: 0,
     },
     red: {
-      value: 2,
+      value: "danger",
       count: 0,
     },
     yellow: {
-      value: 3,
+      value: "warning",
       count: 0,
     },
   };
