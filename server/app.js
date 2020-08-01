@@ -28,10 +28,10 @@ io.on("connection", (socket) => {
       .emit("connectToRoom", "You are in room number: " + roomno);
   });
 
-  if (interval) {
-    clearInterval(interval);
-  }
-  interval = setInterval(() => getApiAndEmit(socket), 1000);
+  // if (interval) {
+  //   clearInterval(interval);
+  // }
+  // interval = setInterval(() => getApiAndEmit(socket), 1000);
   socket.on("disconnect", () => {
     console.log("Client disconnected");
     io.sockets

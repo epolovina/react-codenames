@@ -2,25 +2,25 @@ import "./App.css"
 import React from "react";
 // import React, { useState, useEffect } from "react";
 import Board from "./components/board/Board";
-// import socketIOClient from "socket.io-client";
-// const ENDPOINT = "http://127.0.0.1:4001";
+import socketIOClient from "socket.io-client";
+const ENDPOINT = "http://127.0.0.1:4001";
 
 function App() {
   // const [response, setResponse] = useState("");
 
   // useEffect(() => {
-  //   const socket = socketIOClient(ENDPOINT);
-  //   socket.emit("join", "room");
-  //   socket.on("connectToRoom", (data) => {
-  //     console.log("connected!!!");
-  //     console.log(data);
-  //   });
-  //   socket.on("FromAPI", (data) => {
-  //     setResponse(data);
-  //   });
-  //   socket.on("disconnect", (data) => {
-  //     console.log("Client disconnected");
-  //   });
+    const socket = socketIOClient(ENDPOINT);
+    socket.emit("join", "room");
+    socket.on("connectToRoom", (data) => {
+      console.log("connected!!!");
+      console.log(data);
+    });
+    // socket.on("FromAPI", (data) => {
+    //   setResponse(data);
+    // });
+    socket.on("disconnect", (data) => {
+      console.log("Client disconnected");
+    });
   // }, []);
 
   return (
