@@ -18,9 +18,10 @@ class Hint extends Component {
 	hintSubmit = () => {
 		console.log("Submittedaasdfasdfasd");
 		this.showResults = true;
-		var test = document.getElementsByClassName("formHint");
+		var test = document
+			.getElementsByClassName("formHint")[0]
+			.setAttribute("readonly", true)
 		console.log(test);
-		test.setAttribute("readOnly")
 		// const onClick = () => setShowResults(true)
 	}
 
@@ -36,7 +37,7 @@ class Hint extends Component {
 	render() {
 		// const [showResults, setShowResults] = useState(false);
 		return (
-			<div>
+			<div className="formContainer">
 				<InputGroup className="mb-3 inputField">
 					<InputGroup.Prepend>
 						<InputGroup.Text id="basic-addon1">Hint</InputGroup.Text>
